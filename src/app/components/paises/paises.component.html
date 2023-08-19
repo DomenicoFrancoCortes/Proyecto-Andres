@@ -1,0 +1,47 @@
+<div class="container py-6 px-4 sm:p-6 md:py-10 md:px-24">
+  <h1 class="text-xl font-medium">Tabla de países</h1>
+
+  <input type="text" name="filterPaises" placeholder="Buscar por país..." [(ngModel)]="filterPaises"
+    class="my-4 mt-2 flex h-12 w-full items-center justify-center rounded-xl border bg-white/0 p-3 text-sm outline-none border-gray-200">
+
+
+
+  <table *ngIf="!filaExpandida" class="container py-6 px-4 sm:p-6 md:py-10 md:px-24">
+    <thead class="bg-gray-200 border-b">
+      <tr>
+        <th class=" text-gray-900 px-6 py-4 text-center">País</th>
+        <th class=" text-gray-900 px-6 py-4 text-center">Visa</th>
+        <th class=" text-gray-900 px-6 py-4 text-center">Requisitos</th>
+        <th class=" text-gray-900 px-6 py-4 text-center">Costo de la visa Usd</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
+        *ngFor="let pais of paises | filter:filterPaises">
+        <th (click)="fila()" class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900 ">{{pais.country}}</th>
+        <th class="text-sm text-gray-900 font-normal px-6 py-4 ">{{pais.requisitos}}</th>
+        <th class="text-sm text-gray-900 font-normal px-6 py-4 ">{{pais.visa}}</th>
+        <th class="text-sm text-gray-900 font-normal px-6 py-4">{{pais.visa_cost_usd}} usd</th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<table *ngIf="filaExpandida" class="container py-6 px-4 sm:p-6 md:py-10 md:px-24">
+  <thead class="bg-gray-200 border-b">
+    <tr>
+      <th class=" text-gray-900 px-6 py-4 text-center">País</th>
+      <th class=" text-gray-900 px-6 py-4 text-center">Visa</th>
+      <th class=" text-gray-900 px-6 py-4 text-center">Requisitos</th>
+      <th class=" text-gray-900 px-6 py-4 text-center">Costo de la visa Usd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+      <th  class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900 ">hola</th>
+      <th class="text-sm text-gray-900 font-normal px-6 py-4 ">hola</th>
+      <th class="text-sm text-gray-900 font-normal px-6 py-4 ">hola</th>
+      <th class="text-sm text-gray-900 font-normal px-6 py-4">hola usd</th>
+    </tr>
+  </tbody>
+</table>
+
